@@ -1,33 +1,47 @@
 
 class Raindrops
 
-  def self.guard_clause(number)
-    return true if number % 3 != 0 && number % 5 != 0 && number % 7 != 0
+  def self.primes
+    [3, 5, 7]
   end
 
-  def self.convert(number)
-    return number.to_s if guard_clause(number)
-    @temp_string = ''
-
-    rain(number)
-  end
-
-  def self.rain(number)
-    if number % 3 == 0
-      number /= 3
-      @temp_string << 'Pling'
-      rain(number)
-    elsif number % 5 == 0
-      number /= 5
-      @temp_string << 'Plang'
-      rain(number)
-    elsif number % 7 == 0
-      number /= 7
-      @temp_string << 'Plong'
-      rain(number)
-    end
+  def self.temp_string
     @temp_string
   end
-end
 
-#[3, 5, 7].each { |prime| @p == true if number % prime != 0 }
+  def self.has_no_prime_factor?(number)
+    primes.each { |prime| return false if number % prime == 0 }
+  end
+
+
+  def self.convert(number)
+    return number.to_s if has_no_prime_factor?(number)
+    @temp_string = ''
+
+    make_it_rain(number)
+  end
+
+  def self.data
+    { 3 => 'Pling',
+      5 => 'Plang',
+      7 => 'Plong'
+    }
+  end
+
+
+  def self.make_it_rain(number)
+
+    data.each do |prime, string|
+
+      if number % prime == 0
+
+        number /= prime
+        temp_string << string
+
+        make_it_rain(number) unless has_no_prime_factor?(number)
+
+        return temp_string
+      end
+    end
+  end
+end
