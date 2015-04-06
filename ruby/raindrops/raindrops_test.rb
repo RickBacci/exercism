@@ -25,7 +25,7 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_9
-    assert_equal 'PlingPling', Raindrops.convert(9)
+    assert_equal 'Pling', Raindrops.convert(9)
   end
 
   def test_10
@@ -46,7 +46,7 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_25
-    assert_equal 'PlangPlang', Raindrops.convert(25)
+    assert_equal 'Plang', Raindrops.convert(25)
   end
 
   def test_35
@@ -55,7 +55,7 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_49
-    assert_equal 'PlongPlong', Raindrops.convert(49)
+    assert_equal 'Plong', Raindrops.convert(49)
   end
 
   def test_52
