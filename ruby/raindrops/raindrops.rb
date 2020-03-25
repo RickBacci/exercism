@@ -11,8 +11,8 @@ class Raindrops
 
     return number.to_s if has_no_prime_factor?(number)
 
-    @data.inject('') do |rain_drops, array|
-      rain_drops << array[1] if number % array[0] == 0
+    @data.inject('') do |rain_drops, (num, drop)|
+      rain_drops << drop if number % num == 0
       rain_drops
     end
   end

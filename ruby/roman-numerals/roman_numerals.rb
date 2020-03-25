@@ -4,6 +4,10 @@
 
 class Fixnum
 
+  def initialize
+    @test = 55
+  end
+
   def string
     @string = ''
   end
@@ -22,11 +26,19 @@ class Fixnum
 
 
   def to_roman
+    string = ''
+
     values.each do |value, letter|
-     if self % value == 0
-      p string << letter
-     end
+      if self % value == 0
+        value = value - 10
+        p @test
+        p string << letter
+        p value
+        p foo = self
+        p foo -= 100
+      end
     end
+    string
   end
 end
 
